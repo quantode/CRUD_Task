@@ -1,0 +1,24 @@
+﻿
+@model CRUD_Task.Models.Employee
+
+<h1>Delete Employee</h1>
+
+
+
+
+
+    <p>Are you sure you want to delete the following employee?</p>
+
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Position:</strong> @Model.Position</p>
+    <p><strong>Department:</strong> @Model.Salary</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary">Cancel</a>
+
+

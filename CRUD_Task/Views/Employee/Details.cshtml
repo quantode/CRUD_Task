@@ -1,0 +1,18 @@
+﻿@model CRUD_Task.Models.Employee
+
+<h1>Employee Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Employee ID: @Model.Id</h5>
+        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Position:</strong> @Model.Position</p>
+        <p><strong>Salary:</strong> @Model.Salary</p>
+      
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="@Url.Action("Index", "Employee")" class="btn btn-secondary">Back to Employee List</a>
+</div>
+

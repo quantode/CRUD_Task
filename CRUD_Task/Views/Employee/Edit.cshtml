@@ -1,0 +1,22 @@
+﻿@model CRUD_Task.Models.Employee
+
+<h1>Edit Employee</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" name="Name" class="form-control" value="@Model.Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Position">Position</label>
+        <input type="text" name="Position" class="form-control" value="@Model.Position" required />
+    </div>
+    <div class="form-group">
+        <label for="Salary">Salary</label>
+        <input type="text" name="Salary" class="form-control" value="@Model.Salary" required />
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+<a href="@Url.Action("Index", "Employee")" class="btn btn-secondary">Cancel</a>
