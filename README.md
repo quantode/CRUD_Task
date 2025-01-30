@@ -11,12 +11,6 @@ cd your-repo
 Set up the database
 
 Ensure SQL Server is running
-Run the provided SQL scripts (if any)
--->Install dependencies
-dotnet restore
-
-Run the project
-dotnet run
 
 
 
