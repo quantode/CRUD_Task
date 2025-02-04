@@ -132,7 +132,7 @@ namespace CRUD_Task.Controllers
             {
                 return NotFound();
             }
-            // Log the employee details before deletion
+          
             Console.WriteLine($"Deleting Employee: {employee.Name}");
 
             await employeeRepository.Remove(employee);
