@@ -17,7 +17,7 @@ namespace CRUD_Task.Controllers
 
 
         [HttpGet]
-     //bholi continue garumla k aba
+
         public async Task<IActionResult> Index()
         {
             var employees = await employeeRepository.Get();
