@@ -17,7 +17,7 @@ namespace CRUD_Task.Controllers
 
 
         [HttpGet]
-     //bholi continue garumla k aba
+  
         public async Task<IActionResult> Index()
         {
             var employees = await employeeRepository.Get();
@@ -56,7 +56,7 @@ namespace CRUD_Task.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Return the view with the model to display validation errors
+         
             return View(model);
         }
 
@@ -132,7 +132,7 @@ namespace CRUD_Task.Controllers
             {
                 return NotFound();
             }
-            // Log the employee details before deletion
+           
             Console.WriteLine($"Deleting Employee: {employee.Name}");
 
             await employeeRepository.Remove(employee);
