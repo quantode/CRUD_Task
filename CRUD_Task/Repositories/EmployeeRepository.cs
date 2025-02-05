@@ -16,7 +16,7 @@ namespace CRUD_Task.Repositories
 
         public async Task<IEnumerable<Employee>> Get()
         {
-            var sql = "EXEC spGetAllEmployees"; // Use the stored procedure for fetching all employees
+            var sql = "EXEC spGetAllEmployees"; 
             using var connection = context.CreateConnection();
             return await connection.QueryAsync<Employee>(sql);
         }
@@ -52,21 +52,21 @@ namespace CRUD_Task.Repositories
                 model.Salary
             });
 
-            model.Id = insertedId; // Set the newly inserted Id to the model
+            model.Id = insertedId; 
             return model;
         }
 
         public async Task<Employee> Update(Employee model)
         {
-            var sql = @"
-                UPDATE Employees
-                SET Name = @Name,
-                    Position = @Position,
-                    Salary = @Salary
-                WHERE Id = @Id";
+            var sql = "EXEC spUpdateEmployee @Id, @Name, @Position, @Salary";
 
             using var connection = context.CreateConnection();
-            await connection.ExecuteAsync(sql, model);
+            await connection.ExecuteAsync(sql, new { 
+            model.Name,
+            model.Position,
+            model.Salary,
+            model.Id
+            });
             return model;
         }
 
@@ -82,9 +82,11 @@ namespace CRUD_Task.Repositories
                 throw new ArgumentException("Employee ID is invalid.");
             }
 
-            var sql = "DELETE FROM Employees WHERE Id = @Id";
+            var sql = "EXEC spDeleteEmployee @Id";
             using var connection = context.CreateConnection();
-            await connection.ExecuteAsync(sql, new { model.Id });
+            await connection.ExecuteAsync(sql, new {
+                Id=model.Id 
+            });
             return model;
         }
 
