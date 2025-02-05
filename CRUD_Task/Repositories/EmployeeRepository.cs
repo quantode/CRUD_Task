@@ -16,7 +16,7 @@ namespace CRUD_Task.Repositories
 
         public async Task<IEnumerable<Employee>> Get()
         {
-            var sql = "EXEC spGetAllEmployees"; // Use the stored procedure for fetching all employees
+            var sql = "EXEC spGetAllEmployees"; 
             using var connection = context.CreateConnection();
             return await connection.QueryAsync<Employee>(sql);
         }
@@ -52,7 +52,7 @@ namespace CRUD_Task.Repositories
                 model.Salary
             });
 
-            model.Id = insertedId; // Set the newly inserted Id to the model
+            model.Id = insertedId; 
             return model;
         }
 
