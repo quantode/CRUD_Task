@@ -8,7 +8,7 @@ namespace CRUD_Task.Repositories
     public class EmployeeRepository : IEmployee
     {
         private readonly DapperDbContext context;
-        private string StoredProcedure = "spTestEmployee";
+      
         public EmployeeRepository(DapperDbContext context)
         {
             this.context = context;

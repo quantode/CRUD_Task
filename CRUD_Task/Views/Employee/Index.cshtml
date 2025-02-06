@@ -21,13 +21,16 @@
                 <td>@employee.Position</td>
                 <td>@employee.Salary</td>
                 <td>
-                    <a href="@Url.Action("Details", "Employee", new { id = employee.Id })" class="btn btn-info">Details</a>
-                    <a href="@Url.Action("Edit", "Employee", new { id = employee.Id })" class="btn btn-warning">Edit</a>
-                    <a href="@Url.Action("Delete", "Employee", new { id = employee.Id })" class="btn btn-danger">Delete</a>
+                    <a asp-action="Details" asp-route-id="@employee.Id" class="btn btn-info">Details</a>
+                  
+                    <a asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-warning">Edit</a>
+             
+                    <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger">Delete</a>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a asp-action="Create" class="btn btn-success">Create New Employee</a>
 
-<a href="@Url.Action("Create", "Employee")" class="btn btn-success">Create New Employee</a>
